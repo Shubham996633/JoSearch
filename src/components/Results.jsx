@@ -10,9 +10,12 @@ export const Results = () => {
     const loaction = useLocation()
 
     useEffect(() => {
-        getResults('q=jonita Gandhi&pageNumber=1&pageSize=10&autoCorrect=true')
-
-    }, [])
+        if (searchTerm !== '') {
+            {
+                getResults(`q=${searchTerm}&pageSize=40`);
+            }
+        }
+    }, [searchTerm]);
 
 
     if (isLoading) return <Loading />
@@ -21,18 +24,22 @@ export const Results = () => {
         case '/search':
             return (
                 <div className='flex flex-wrap justify-between space-y-6 sm:px-56'>
-                    {results?.items?.map(({ link, title }, index) => (
+                    {results?.value?.map(({ url, title, description }, index) => (
                         <div key={index} className="md:w-2/5 w-full">
-                            <a href={link} target="_blank">
-                                <p className='text-sm'>
-                                    {link.length > 69 ? link.substring(0, 30) : link}
-                                </p>
+                            <a href={url} target="_blank">
                                 <p className='text-lg hover:underline dark:text-blue-300 text-blue-700'>
                                     {title}
 
                                 </p>
 
                             </a>
+                            <p className='text-sm text-green-900 dark:text-green-100'>
+                                {url.length > 69 ? url.substring(0, 30) : url}
+                            </p>
+
+                            <p className='text-sm mt-3'>{description.length > 69 ? description.substring(0, 123) + '...' : description}</p>
+
+
                         </div>
                     ))}
 
