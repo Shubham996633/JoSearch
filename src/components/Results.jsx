@@ -5,17 +5,39 @@ import { UseResultContext } from '../contexts/ResultContextProvider'
 import { Loading } from './Loading'
 
 export const Results = () => {
+    function checker() {
+        console.log(loaction.pathname)
+        if (loaction.pathname === '/images') {
+
+            console.log(loaction.pathname)
+            getResults(`Search/ImageSearchAPI?q=${searchTerm}&pageSize=40`);
+        } else if (loaction.pathname === '/news') {
+            console.log(loaction.pathname)
+            getResults(`search/NewsSearchAPI?q=${searchTerm}&pageNumber=1&pageSize=10&autoCorrect=true&fromPublishedDate=null&toPublishedDate=null`);
+
+        }
+    }
+
+
 
     const { results, isLoading, getResults, searchTerm } = UseResultContext()
     const loaction = useLocation()
 
     useEffect(() => {
         if (searchTerm !== '') {
-            {
-                getResults(`q=${searchTerm}&pageSize=40`);
+
+            if (loaction.pathname === '/search') {
+
+                console.log(loaction.pathname)
+                getResults(`Search/WebSearchAPI?q=${searchTerm}&pageSize=40`);
+            } else {
+                console.log('Hey')
+                checker()
+
             }
+
         }
-    }, [searchTerm]);
+    }, [searchTerm, loaction.pathname]);
 
 
     if (isLoading) return <Loading />
@@ -75,16 +97,6 @@ export const Results = () => {
             );
 
 
-        case '/videos':
-            return (
-                <div className="flex flex-wrap ">
-                    {results?.results?.map((video, index) => (
-                        <div key={index} className="p-2">
-                            <ReactPlayer url={video.additional_links?.[0].href} controls width="355px" height="200px" />
-                        </div>
-                    ))}
-                </div>
-            );
 
 
         default:

@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState } from 'react'
 
 const ResultContext = createContext()
-const baseUrl = 'https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/WebSearchAPI?'
+const baseUrl = 'https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/'
 
 export const ResultContextProvider = ({ children }) => {
     const [results, setResults] = useState([])
