@@ -1,20 +1,20 @@
 import React from 'react'
-import { Routes, Route, Navigate } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom';
 import { Results } from './Results'
 
 
 const NavRoutes = () => {
     return (
         <div className='p-4'>
-            <Routes>
+            <Switch>
                 <Route exact path="/">
-                    <Navigate to='/search' />
+                    <Redirect to='/search' />
 
                 </Route>
                 <Route exact path={['/search', '/images', '/news', '/videos']} >
                     <Results />
                 </Route>
-            </Routes>
+            </Switch>
         </div>
     )
 }
