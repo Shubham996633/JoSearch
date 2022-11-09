@@ -64,7 +64,7 @@ export const Results = () => {
                     {console.log('search')}
                     {results?.webPages?.value?.map(({ url, name, displayUrl, snippet }, index) => (
                         <div key={index} className="md:w-2/5 w-full">
-                            <a href={url} target="_blank">
+                            <a href={url} target="_blank" rel="noreferrer " >
                                 <p className='text-lg hover:underline dark:text-blue-300 text-blue-700'>
                                     {name}
 
@@ -91,7 +91,7 @@ export const Results = () => {
                     {console.log('images')}
 
                     {results?.value?.map(({ contentUrl, thumbnailUrl, name }, index) => (
-                        <a href={contentUrl} target="_blank" key={index} className="sm:p-3 p-5">
+                        <a href={contentUrl} target="_blank" key={index} className="sm:p-3 p-5" rel="noreferrer ">
                             <img src={thumbnailUrl} alt={name} />
                             <p className="sm:w-36 w-36 break-words text-sm mt-2">{name}</p>
                         </a>
@@ -105,8 +105,8 @@ export const Results = () => {
         case '/videos':
             return (
                 <div className="flex flex-wrap ">
-                    {results?.value?.map(({ hostPageUrl, name, index, creator }) => (
-                        <div key={index} className="p-2">
+                    {results?.value?.map(({ hostPageUrl, name, creator, duration }) => (
+                        <div key={duration} className="p-2">
                             <ReactPlayer url={hostPageUrl} controls width="355px" height="200px" />
                             <a href={hostPageUrl} target="_blank" rel="noreferrer " className="hover:underline ">
 
@@ -124,9 +124,9 @@ export const Results = () => {
                 <div className="sm:px-56 flex flex-wrap justify-between items-center space-y-6">
                     {console.log('news')}
 
-                    {results?.value?.map(({ id, url, description, name }) => (
+                    {results?.value?.map(({ url, description, name }, index) => (
 
-                        <div key={id} className="md:w-2/5 w-full ">
+                        <div key={index} className="md:w-2/5 w-full ">
 
                             <a href={url} target="_blank" rel="noreferrer " className="hover:underline ">
                                 <p className="text-lg dark:text-blue-300 text-blue-700">{name}</p>
