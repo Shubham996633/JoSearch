@@ -8,7 +8,8 @@ export const ResultContextProvider = ({ children }) => {
     const [isLoading, setIsLoading] = useState(false)
     const [searchTerm, setSearchTerm] = useState('')
 
-
+    // 15eef971dfmsha3593e18a102949p178aebjsn2f51369adcd5
+    // f0b1953657msh2679e8ad56f83a4p16212bjsn769263f527f1
     const getResults = async (type) => {
         setIsLoading(true)
 
@@ -17,7 +18,7 @@ export const ResultContextProvider = ({ children }) => {
             {
                 method: 'GET',
                 headers: {
-                    "X-RapidAPI-Key": "15eef971dfmsha3593e18a102949p178aebjsn2f51369adcd5",
+                    "X-RapidAPI-Key": "f0b1953657msh2679e8ad56f83a4p16212bjsn769263f527f1",
                     "X-RapidAPI-Host": "contextualwebsearch-websearch-v1.p.rapidapi.com"
                 }
             })
