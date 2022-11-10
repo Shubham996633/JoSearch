@@ -6,25 +6,19 @@ import { Loading } from './Loading'
 
 export const Results = () => {
     function checker() {
-        console.log(loaction.pathname)
 
         if (loaction.pathname === '') {
-            console.log('hat bein')
 
         }
         else if (loaction.pathname === '/images') {
-            console.log(loaction.pathname)
             getResults(`image-search1.p.rapidapi.com/images/search?q=${searchTerm}&count=40`);
 
 
         } else if (loaction.pathname === '/videos') {
-            console.log('Video Hackes')
             getResults(`video-search1.p.rapidapi.com/videos/search?q=${searchTerm}&count=24`);
 
         } else {
 
-            console.log(loaction.pathname)
-            // getResults(`image-search1.p.rapidapi.com/images/search?q=${searchTerm}&count=40`);
             getResults(`news-search1.p.rapidapi.com/news/search?q=${searchTerm}&count=24`);
 
         }
@@ -39,10 +33,8 @@ export const Results = () => {
         if (searchTerm !== '') {
             if (loaction.pathname === '/search') {
 
-                console.log(loaction.pathname)
                 getResults(`web-search1.p.rapidapi.com/search?q=${searchTerm}&count=39`);
             } else {
-                console.log('checking')
 
                 checker()
             }
@@ -61,7 +53,6 @@ export const Results = () => {
             return (
                 <div className='flex flex-wrap justify-between space-y-6 sm:px-56'>
 
-                    {console.log('search')}
                     {results?.webPages?.value?.map(({ url, name, displayUrl, snippet }, index) => (
                         <div key={index} className="md:w-2/5 w-full">
                             <a href={url} target="_blank" rel="noreferrer " >
@@ -87,8 +78,6 @@ export const Results = () => {
         case '/images':
             return (
                 <div className="flex flex-wrap justify-center items-center">
-                    {console.log('yo')}
-                    {console.log('images')}
 
                     {results?.value?.map(({ contentUrl, thumbnailUrl, name }, index) => (
                         <a href={contentUrl} target="_blank" key={index} className="sm:p-3 p-5" rel="noreferrer ">
@@ -122,7 +111,6 @@ export const Results = () => {
         case '/news':
             return (
                 <div className="sm:px-56 flex flex-wrap justify-between items-center space-y-6">
-                    {console.log('news')}
 
                     {results?.value?.map(({ url, description, name }, index) => (
 

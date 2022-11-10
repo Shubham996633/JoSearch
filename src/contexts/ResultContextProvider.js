@@ -11,9 +11,7 @@ export const ResultContextProvider = ({ children }) => {
 
     const getResults = async (type) => {
         setIsLoading(true)
-        console.log(type)
         if (type.search('image-search1.p.rapidapi.com') > -1) {
-            console.log('hacked')
             const response = await fetch(`${baseUrl}${type}`,
 
                 {
@@ -25,11 +23,9 @@ export const ResultContextProvider = ({ children }) => {
                 })
 
             const data = await response.json()
-            console.log(data)
             setResults(data)
             setIsLoading(false)
         } else if (type.search('news-search1.p.rapidapi.com') > -1) {
-            console.log('hacked')
             const response = await fetch(`${baseUrl}${type}`,
 
                 {
@@ -41,13 +37,11 @@ export const ResultContextProvider = ({ children }) => {
                 })
 
             const data = await response.json()
-            console.log(data)
             setResults(data)
             setIsLoading(false)
         }
 
         else if (type.search('video-search1.p.rapidapi.com') > -1) {
-            console.log('hacked')
             const response = await fetch(`${baseUrl}${type}`,
 
                 {
@@ -59,12 +53,10 @@ export const ResultContextProvider = ({ children }) => {
                 })
 
             const data = await response.json()
-            console.log(data)
             setResults(data)
             setIsLoading(false)
         }
         else {
-            console.log(api_key)
 
 
             const response = await fetch(`${baseUrl}${type}`,
@@ -78,15 +70,11 @@ export const ResultContextProvider = ({ children }) => {
                 })
 
             const data = await response.json()
-            console.log(data)
             setResults(data)
             setIsLoading(false)
         }
 
-        // const data = await response.json()
-        // console.log(data)
-        // setResults(data)
-        // setIsLoading(false)
+
 
     }
 
