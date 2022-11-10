@@ -10,5 +10,5 @@
 ## To Run on Local
 
 ### &ensp;&ensp;&ensp;&ensp; -->  Clone the Repositry
-### &ensp;&ensp;&ensp;&ensp; --> Run <code>npm install </code>
-### &ensp;&ensp;&ensp;&ensp; --> Run <code>npm start </code>
+### &ensp;&ensp;&ensp;&ensp; --> Run <code>yarn install </code>
+### &ensp;&ensp;&ensp;&ensp; --> Run <code>yarn start </code>
