@@ -105,8 +105,8 @@ export const Results = () => {
         case '/videos':
             return (
                 <div className="flex flex-wrap ">
-                    {results?.value?.map(({ hostPageUrl, name, creator, duration }) => (
-                        <div key={duration} className="p-2">
+                    {results?.value?.map(({ hostPageUrl, name, creator, videoId }) => (
+                        <div key={videoId} className="p-2">
                             <ReactPlayer url={hostPageUrl} controls width="355px" height="200px" />
                             <a href={hostPageUrl} target="_blank" rel="noreferrer " className="hover:underline ">
 
